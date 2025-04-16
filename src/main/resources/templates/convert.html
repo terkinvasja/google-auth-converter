@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<table id="result" th:fragment="result" class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Issuer</th>
+    <th scope="col">Secret</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="result: ${results}">
+    <th scope="row" th:text="${resultStat.count}"></th>
+    <td th:text="${result.getName()}"></td>
+    <td th:text="${result.getIssuer()}"></td>
+    <td th:text="${result.getSecret()}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

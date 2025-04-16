@@ -2,9 +2,9 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
     id 'java'
+    alias(libs.plugins.kotlin)
     alias(libs.plugins.spring.boot)
     alias(libs.plugins.nebula)
-    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'top.kutsko'
@@ -28,20 +28,19 @@ repositories {
 
 dependencies {
     implementation(platform(SpringBootPlugin.BOM_COORDINATES))
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'io.github.wimdeblauwe:htmx-spring-boot-thymeleaf:4.0.1'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'io.projectreactor:reactor-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
+    annotationProcessor(platform(SpringBootPlugin.BOM_COORDINATES))
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-tasks.named('test') {
-    useJUnitPlatform()
+    implementation("org.webjars:bootstrap:5.3.5")
+    implementation("org.webjars.npm:htmx.org:2.0.4")
+
+    implementation("commons-codec:commons-codec:1.18.0")
+    implementation("com.google.protobuf:protobuf-java-util:4.30.2")
+
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
 }
 
 tasks.register("writeVersion") {

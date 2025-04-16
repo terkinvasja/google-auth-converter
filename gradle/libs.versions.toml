@@ -1,6 +1,7 @@
 [versions]
+kotlin = "2.1.10"
 springBoot = "3.4.4"
-lombok = "1.18.34"
+lombok = "1.18.38"
 problemSpringWebStarter = "0.27.0"
 
 [libraries]
@@ -8,5 +9,6 @@ lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 zalando-problem-spring-web-starter = { module = "org.zalando:problem-spring-web-starter", version.ref = "problemSpringWebStarter" }
 
 [plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
-nebula = { id = "nebula.release", version = "19.0.10" }
+nebula = { id = "nebula.release", version = "20.2.0" }
